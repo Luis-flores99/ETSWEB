@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agregar</title>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="util.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+    <script type="module" src="mi-nav.js"></script>
+    <script type="module" src="mi-footer.js"></script>
+    <meta http-equiv="Expires" content="0">
+</head>
+
+<body background="http://www.solofondos.com/wp-content/uploads/2017/08/wallpaper-iPad-abstracto-azul-Mac.jpg" ;>
+
+<button type="button" onclick="location.href='index.html'" style="background-color: green; color:white; border-color: black; height: 40px ;width: 150px; float: right; margin: 20px;">Sesión</button>
+<button onclick="location.href='pasatiempos.html'" style="background-color: rgb(67, 27, 99); color:white; border-color: black; height: 40px ;width: 170px;margin: 20px; ">Pasatiempos</button>
+<center>
+<form action="javascript:guarda()">
+    <header>
+        <br>
+        <herramientas-abc></herramientas-abc>
+        <h1 id="Outpasatiempo">Pasatiempo Nuevo</h1>
+
+    </header>
+    <p><input id="rpasatiempos" type="text" placeholder="pasatiempo" required></p>
+    <button id="guardapas" style="background-color: greenyellow" ; class="btn btn-info" type="submit">Guardar</button>
+    <foot></foot>
+</form>
+</center>
+<script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAbpzgoQf8DoDHObF8XTL9eS5JmtSiJp9c",
+        authDomain: "ets-pasatiempos.firebaseapp.com",
+        projectId: "ets-pasatiempos",
+        storageBucket: "ets-pasatiempos.appspot.com",
+        messagingSenderId: "707400227988",
+        appId: "1:707400227988:web:a349d12780d38f8be12881",
+        measurementId: "G-X9TFWSMK5B"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      var firestore = firebase.firestore();
+      const documento = firestore.doc("/archivopasatiempo");
+      const salida = document.querySelector("#Outpasatiempo");
+      const texto = document.querySelector("#rpasatiempos");
+      const save = document.querySelector("#guardapas");
+      save.addEventListener("click", function(){
+        const guardatexto = texto.value;
+        console.log("Se va a guardar "+guardatexto+" en Firebase");
+        documento.set({
+            status: guardatexto
+        }).then(function(){
+            console.log("Guardado");
+        }).catch(function(error){
+            console.log("Tiene un error: ",error);
+        });
+      })
+    </script>
+    <script >
+        async function guarda() {
+        try {
+            if (id) {
+                await firestore.collection("PASATIEMPO").doc(id).set(leeModelo());
+            } else {
+                await firestore.collection("PASATIEMPO").add(leeModelo());
+            }
+            agrega();
+        } catch (e) {
+            procesaError(e);
+        }
+    }
+    </script>
+<footer>Copyright &copy; 2021 Luis Andres Flores Gervacio.</footer>
+    
+</body>
+
+</html>

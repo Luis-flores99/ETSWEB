@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pasatiempos</title>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+    <script src="util.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+    <script type="module" src="mi-nav.js"></script>
+    <script type="module" src="mi-footer.js"></script>
+    <meta http-equiv="Expires" content="0">
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAbpzgoQf8DoDHObF8XTL9eS5JmtSiJp9c",
+        authDomain: "ets-pasatiempos.firebaseapp.com",
+        projectId: "ets-pasatiempos",
+        storageBucket: "ets-pasatiempos.appspot.com",
+        messagingSenderId: "707400227988",
+        appId: "1:707400227988:web:a349d12780d38f8be12881",
+        measurementId: "G-X9TFWSMK5B"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+
+
+</head>
+
+<body background="http://www.solofondos.com/wp-content/uploads/2017/08/wallpaper-iPad-abstracto-azul-Mac.jpg" ;></body>
+
+<button type="button" onclick="location.href='index.html'" style="background-color: green; color:white; border-color: black; height: 40px ;width: 150px; float: right; margin: 20px;">Sesión</button>
+<button onclick="location.href='agregar.html'" style="background-color: rgb(67, 27, 99); color:white; border-color: black; height: 40px ;width: 170px;margin: 20px; ">Agregar pasatiempo</button>
+
+<center>
+<h1>Pasatiempos</h1>
+<ul id="lista" class="lista"><li>
+                <a href="agregar.html"><strong>Correr</strong></a>
+            </li><li>
+                <a href="agregar.html"><strong>Futbol</strong></a>
+            </li><li>
+                <a href="agregar.html"><strong>Musica</strong></a>
+            </li>
+</ul>
+</center>
+<footer>Copyright &copy; 2021 Luis Andres Flores Gervacio.</footer>
+</body>
+
+</html>
